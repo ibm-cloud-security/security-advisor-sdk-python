@@ -214,7 +214,7 @@ Example | http method
 [***delete bulk channels***](https://github.com/ibm-cloud-security/security-advisor-sdk-python/blob/master/samples/notifications/delete_notification_channels.py) | DELETE /v1/{account_id}/notifications/channels
 [***delete channel***](https://github.com/ibm-cloud-security/security-advisor-sdk-python/blob/master/samples/notifications/delete_notification_channel.py) | DELETE /v1/{account_id}/notifications/channels/{channel_id}
 [***update channel***](https://github.com/ibm-cloud-security/security-advisor-sdk-python/blob/master/samples/notifications/update_notification_channel.py) | PUT /v1/{account_id}/notifications/channels/{channel_id}
-[***test channel***](https://github.com/ibm-cloud-security/security-advisor-sdk-python/blob/master/samples/notifications/test_notification_channel.py) | GET /v1/{account_id}/notifications/channels/{channel_id}/test 
+[***test channel***](https://github.com/ibm-cloud-security/security-advisor-sdk-python/blob/master/samples/notifications/notification_channel_verify.py) | GET /v1/{account_id}/notifications/channels/{channel_id}/test 
 [***get public key***](https://github.com/ibm-cloud-security/security-advisor-sdk-python/blob/master/samples/notifications/get_public_key.py) | GET /v1/{account_id}/notifications/public_key 
 
 
