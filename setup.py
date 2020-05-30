@@ -26,8 +26,6 @@ this_directory = path.abspath(path.dirname(__file__))
 with io.open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-print("Setting up IBM Cloud Security advisor SDK")
-
 NAME = "ibm_cloud_security_advisor"
 __version__ = '1.0.0'
 # To install the library, run the following
