@@ -1,5 +1,5 @@
 [{
-    "name": "sdk_test_notification1",
+    "name": "create_channel1",
     "description": "test1 description",
     "type": "Webhook",
     "endpoint": "https://webhook.site/2905c749-91d7-4841-8fb1-2bd9112ed773",
@@ -21,19 +21,12 @@
             "finding_types": [
                 "ALL"
             ]
-        },
-        {
-            "provider_name": "config-advisor",
-            "finding_types": [
-                "appprotection-dns_not_proxied",
-                "appprotection-dnssec_off"
-            ]
         }
     ]
 },
 {
-    "name": "test_delete1",
-    "description": "test_delete_notification_channel description",
+    "name": "delete_channel1",
+    "description": "delete_channel1 description",
     "type": "Webhook",
     "endpoint": "https://webhook.site/2905c749-91d7-4841-8fb1-2bd9112ed773",
     "enabled": true,
@@ -54,19 +47,12 @@
             "finding_types": [
                 "ALL"
             ]
-        },
-        {
-            "provider_name": "config-advisor",
-            "finding_types": [
-                "appprotection-dns_not_proxied",
-                "appprotection-dnssec_off"
-            ]
         }
     ]
 },
 {
-    "name": "sdk_test_notification1",
-    "description": "test_update_notification_channel description",
+    "name": "create_channel1",
+    "description": "create_channel1 description",
     "type": "Webhook",
     "endpoint": "http://test.update.com",
     "enabled": true,
@@ -87,19 +73,12 @@
             "finding_types": [
                 "ALL"
             ]
-        },
-        {
-            "provider_name": "config-advisor",
-            "finding_types": [
-                "appprotection-dns_not_proxied",
-                "appprotection-dnssec_off"
-            ]
         }
     ]
 },
 {
-    "name": "test_delete2",
-    "description": "test_delete2_notification_channel description",
+    "name": "delete_channel2",
+    "description": "delete_channel2 description",
     "type": "Webhook",
     "endpoint": "https://webhook.site/2905c749-91d7-4841-8fb1-2bd9112ed773",
     "enabled": true,
@@ -119,13 +98,6 @@
             "provider_name": "CERT",
             "finding_types": [
                 "ALL"
-            ]
-        },
-        {
-            "provider_name": "config-advisor",
-            "finding_types": [
-                "appprotection-dns_not_proxied",
-                "appprotection-dnssec_off"
             ]
         }
     ]
