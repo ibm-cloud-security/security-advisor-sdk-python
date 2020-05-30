@@ -27,7 +27,7 @@ with io.open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 NAME = "ibm_cloud_security_advisor"
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 # To install the library, run the following
 #
 # python setup.py install
