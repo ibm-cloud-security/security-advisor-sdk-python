@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/ibm-cloud-security/security-advisor-sdk-python/compare/v1.0.0...v1.0.1) (2020-05-30)
+
+
+### Bug Fixes
+
+* **releasing-process:** test second release ([631daa4](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/631daa4a009d650613ff7168f68cb6bc2818c9d6))
+* **releasing-process:** test second release ([97831fd](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/97831fd20786278a412a0b212e3c50555333d201))
+
 # 1.0.0 (2020-05-30)
 
 
