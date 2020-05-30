@@ -29,7 +29,7 @@ with io.open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 
 NAME = "ibm_cloud_security_advisor"
-VERSION = "1.0.0"
+__version__ = '1.0.0'
 # To install the library, run the following
 #
 # python setup.py install
@@ -41,7 +41,7 @@ REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil", "ibm
 
 setup(
     name=NAME,
-    version=VERSION,
+    version=__version__,
     license='Apache 2.0',
     description="Security Advisor API Client SDK",
     author='IBM Cloud',
