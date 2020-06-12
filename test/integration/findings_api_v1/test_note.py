@@ -84,11 +84,31 @@ class TestNote(unittest.TestCase):
 
     def test_list_note(self):
         print("test_list_note")
+        with open(jsonDir + "note_for_list_note.json") as f:
+            data = json.load(f)
+        data['id'] = generate_unique_string('note')
+        data['provider_id'] = generate_unique_string('list_note_provider')
+        
+        resp = TestNote.ibm_security_advisor_findings_api_sdk.create_note(
+            account_id=TestNote.account_id,
+            **data
+        )
+        print(data)
+
         resp = TestNote.ibm_security_advisor_findings_api_sdk.list_notes(
             account_id=TestNote.account_id,
-            **TestNote.note_data,
+            provider_id=data['provider_id']
         )
-        assert resp.result['notes'][0]['id'] == TestNote.note_data['id']
+        assert resp.result['notes'][0]['id'] == data['id']
+
+        delResp = TestNote.ibm_security_advisor_findings_api_sdk.delete_note(
+            account_id=TestNote.account_id,
+            **data,
+            note_id=data['id']
+        )
+
+        if delResp.result != {}:
+            print("note deletion is failed", delResp)
 
     def test_delete_note(self):
         print("test_delete_note")
