@@ -26,6 +26,7 @@ import os
 from ibm_cloud_security_advisor import FindingsApiV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from .utils import read_credentials
+from .utils import generate_unique_string
 from ibm_cloud_sdk_core.api_exception import ApiException
 
 cwd = os.getcwd()
@@ -53,6 +54,8 @@ class TestOccurrence(unittest.TestCase):
         # read note
         with open(jsonDir + "note.json") as f:
             TestOccurrence.note_data = json.load(f)
+        
+        TestOccurrence.note_data['id'] = generate_unique_string('note_occ')
 
         authenticator = IAMAuthenticator(
             url=iam_endpoint,
@@ -71,7 +74,7 @@ class TestOccurrence(unittest.TestCase):
         # read occurrence
         with open(jsonDir + "occurrence.json") as f:
             TestOccurrence.occ_data = json.load(f)
-
+        TestOccurrence.occ_data['id'] = generate_unique_string('occ')
         print("setup:creating occurrence...")
         TestOccurrence.create_occ_resp = TestOccurrence.ibm_security_advisor_findings_api_sdk.create_occurrence(
             account_id=TestOccurrence.account_id,
@@ -112,6 +115,8 @@ class TestOccurrence(unittest.TestCase):
         with open(jsonDir + "occurrence_with_context.json") as f:
             data = json.load(f)
 
+        data['id'] = generate_unique_string('occ_with_context')
+
         resp = TestOccurrence.ibm_security_advisor_findings_api_sdk.create_occurrence(
             account_id=TestOccurrence.account_id,
             note_name=TestOccurrence.account_id + "/providers/" + data['provider_id'] + "/notes/" +
@@ -130,6 +135,8 @@ class TestOccurrence(unittest.TestCase):
         print("creating kpi note")
         with open(jsonDir + "note_with_kpi.json") as f:
             note_data = json.load(f)
+        note_data['id'] = generate_unique_string('kpi_note_occ')
+
         resp = TestOccurrence.ibm_security_advisor_findings_api_sdk.create_note(
             account_id=TestOccurrence.account_id,
             **note_data
@@ -138,6 +145,7 @@ class TestOccurrence(unittest.TestCase):
         # read occurrence
         with open(jsonDir + "occurrence_with_kpi.json") as f:
             occ_data = json.load(f)
+        occ_data['id'] = generate_unique_string('kpi_occ')
 
         resp = TestOccurrence.ibm_security_advisor_findings_api_sdk.create_occurrence(
             account_id=TestOccurrence.account_id,
@@ -188,6 +196,7 @@ class TestOccurrence(unittest.TestCase):
         # read occurrence
         with open(jsonDir + "occurrence_for_delete_operation.json") as f:
             data = json.load(f)
+        data['id'] = generate_unique_string('occ_del')
 
         resp = TestOccurrence.ibm_security_advisor_findings_api_sdk.create_occurrence(
             account_id=TestOccurrence.account_id,
@@ -209,7 +218,7 @@ class TestOccurrence(unittest.TestCase):
         # read occurrence
         with open(jsonDir + "occurrence_with_context_neg.json") as f:
             data = json.load(f)
-
+        data['id'] = generate_unique_string('occ_neg')
         try:
             resp = TestOccurrence.ibm_security_advisor_findings_api_sdk.create_occurrence(
                 account_id=TestOccurrence.account_id,

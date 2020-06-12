@@ -16,6 +16,7 @@
 # from ibm_cloud_sdk_core.authenticators import Authenticator
 
 import json as json_import
+import uuid
 from os import getenv, environ, getcwd
 from os.path import isfile, join, expanduser
 
@@ -74,4 +75,16 @@ def read_credentials(separator: str = '=') -> dict:
 
 def _parse_key_and_update_config(config, key, value):
     config[key] = value
+
+def generate_unique_string(typ):
+    """
+    Generates a unique name based using Universally unique identifie.
+
+    Keyword Args:
+        typ: The type of element that will use the string.
+    
+    Returns:
+        A a unique name.
+    """
+    return f'{uuid.uuid4().hex}_{typ}'
 
