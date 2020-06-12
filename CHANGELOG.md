@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/ibm-cloud-security/security-advisor-sdk-python/compare/v1.0.1...v1.0.2) (2020-06-12)
+
+
+### Bug Fixes
+
+* **release:** integration tests retry logic ([4e66f1c](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/4e66f1c7cb288b70ec287735c3a2f19f7cffaf2d))
+* **release:** integration tests retry logic ([382aa0c](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/382aa0cbadfd5981d10969288e16acbde98e9410))
+* **release:** integration tests retry logic ([4d5fad5](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/4d5fad5b992adc45e49a1c00440a55c89196ebf6))
+
 ## [1.0.1](https://github.com/ibm-cloud-security/security-advisor-sdk-python/compare/v1.0.0...v1.0.1) (2020-05-30)
 
 
