@@ -26,6 +26,7 @@ import os
 from ibm_cloud_security_advisor import FindingsApiV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from .utils import read_credentials
+from .utils import generate_unique_string
 
 cwd = os.getcwd()
 jsonDir = cwd + "/test/integration/findings_api_v1/input/json/"
@@ -50,6 +51,7 @@ class TestProvider(unittest.TestCase):
         # read note
         with open(jsonDir + "note.json") as f:
             TestProvider.note_data = json.load(f)
+        TestProvider.note_data['id'] = generate_unique_string('note')
 
         authenticator = IAMAuthenticator(
             url=iam_endpoint,

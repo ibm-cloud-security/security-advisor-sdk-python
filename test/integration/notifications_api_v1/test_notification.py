@@ -27,6 +27,7 @@ from ibm_cloud_security_advisor import NotificationsApiV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from .utils import read_credentials
 from ibm_cloud_sdk_core.api_exception import ApiException
+from .utils import generate_unique_name
 
 cwd = os.getcwd()
 jsonDir = cwd + "/test/integration/notifications_api_v1/input/json/"
@@ -58,7 +59,8 @@ class TestNotification(unittest.TestCase):
         # read notification json
         with open(jsonDir + "notification.json") as f:
             TestNotification.notification_data = json.load(f)
-
+        
+        TestNotification.notification_data[0]['name'] = generate_unique_name()
         TestNotification.create_notification_channel_resp = TestNotification.ibm_security_advisor_notifications_api_sdk.create_notification_channel(
             account_id=TestNotification.account_id,
             **TestNotification.notification_data[0]
@@ -87,15 +89,19 @@ class TestNotification(unittest.TestCase):
 
     def test_delete_notification_channels(self):
         print("test_delete_notification_channels...")
+        TestNotification.notification_data[1]['name'] = generate_unique_name()
         resp1 = TestNotification.ibm_security_advisor_notifications_api_sdk.create_notification_channel(
             account_id=TestNotification.account_id,
             **TestNotification.notification_data[1]
         )
         assert resp1.result['statusCode'] == 200
+
+        TestNotification.notification_data[3]['name'] = generate_unique_name()
         resp2 = TestNotification.ibm_security_advisor_notifications_api_sdk.create_notification_channel(
             account_id=TestNotification.account_id,
             **TestNotification.notification_data[3]
         )
+
         assert resp2.result['statusCode'] == 200
         del_resp = TestNotification.ibm_security_advisor_notifications_api_sdk.delete_notification_channels(
             account_id=TestNotification.account_id,
@@ -108,6 +114,8 @@ class TestNotification(unittest.TestCase):
 
     def test_delete_notification_channel(self):
         print("test_delete_notification_channel...")
+
+        TestNotification.notification_data[1]['name'] = generate_unique_name()
         resp = TestNotification.ibm_security_advisor_notifications_api_sdk.create_notification_channel(
             account_id=TestNotification.account_id,
             **TestNotification.notification_data[1]
@@ -129,6 +137,7 @@ class TestNotification(unittest.TestCase):
 
     def test_update_notification_channel(self):
         print("test_update_notification_channel...")
+        TestNotification.notification_data[2]['name'] = generate_unique_name()
         resp = TestNotification.ibm_security_advisor_notifications_api_sdk.update_notification_channel(
             account_id=TestNotification.account_id,
             channel_id=TestNotification.create_notification_channel_resp.result['channel_id'],

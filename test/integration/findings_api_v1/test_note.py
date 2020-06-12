@@ -26,6 +26,7 @@ import os
 from ibm_cloud_security_advisor import FindingsApiV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from .utils import read_credentials
+from .utils import generate_unique_string
 from ibm_cloud_sdk_core.api_exception import ApiException
 
 cwd = os.getcwd()
@@ -52,6 +53,7 @@ class TestNote(unittest.TestCase):
         # read note
         with open(jsonDir + "note.json") as f:
             TestNote.note_data = json.load(f)
+        TestNote.note_data['id'] = generate_unique_string('note')
 
         authenticator = IAMAuthenticator(
             url=iam_endpoint,
@@ -82,17 +84,38 @@ class TestNote(unittest.TestCase):
 
     def test_list_note(self):
         print("test_list_note")
+        with open(jsonDir + "note_for_list_note.json") as f:
+            data = json.load(f)
+        data['id'] = generate_unique_string('note')
+        data['provider_id'] = generate_unique_string('list_note_provider')
+        
+        resp = TestNote.ibm_security_advisor_findings_api_sdk.create_note(
+            account_id=TestNote.account_id,
+            **data
+        )
+        print(data)
+
         resp = TestNote.ibm_security_advisor_findings_api_sdk.list_notes(
             account_id=TestNote.account_id,
-            **TestNote.note_data,
+            provider_id=data['provider_id']
         )
-        assert resp.result['notes'][0]['id'] == TestNote.note_data['id']
+        assert resp.result['notes'][0]['id'] == data['id']
+
+        delResp = TestNote.ibm_security_advisor_findings_api_sdk.delete_note(
+            account_id=TestNote.account_id,
+            **data,
+            note_id=data['id']
+        )
+
+        if delResp.result != {}:
+            print("note deletion is failed", delResp)
 
     def test_delete_note(self):
         print("test_delete_note")
         # read note
         with open(jsonDir + "note_with_kpi.json") as f:
             data = json.load(f)
+        data['id'] = generate_unique_string('note')
         resp = TestNote.ibm_security_advisor_findings_api_sdk.create_note(
             account_id=TestNote.account_id,
             **data
@@ -110,6 +133,7 @@ class TestNote(unittest.TestCase):
         # read note
         with open(jsonDir + "note_with_kpi.json") as f:
             data = json.load(f)
+        data['id'] = generate_unique_string('kpi_note')
         resp = TestNote.ibm_security_advisor_findings_api_sdk.create_note(
             account_id=TestNote.account_id,
             **data
@@ -129,10 +153,13 @@ class TestNote(unittest.TestCase):
         # read note
         with open(jsonDir + "note_with_section.json") as f:
             data = json.load(f)
+
+        data['id'] = generate_unique_string('section_note')
         resp = TestNote.ibm_security_advisor_findings_api_sdk.create_note(
             account_id=TestNote.account_id,
             **data
         )
+
         delResp = TestNote.ibm_security_advisor_findings_api_sdk.delete_note(
             account_id=TestNote.account_id,
             **data,
@@ -148,10 +175,12 @@ class TestNote(unittest.TestCase):
         # read note
         with open(jsonDir + "card.json") as f:
             data = json.load(f)
+        data['id'] = generate_unique_string('card')
         resp = TestNote.ibm_security_advisor_findings_api_sdk.create_note(
             account_id=TestNote.account_id,
             **data
         )
+
         delResp = TestNote.ibm_security_advisor_findings_api_sdk.delete_note(
             account_id=TestNote.account_id,
             **data,
@@ -167,6 +196,7 @@ class TestNote(unittest.TestCase):
         # read note
         with open(jsonDir + "note_with_kpi_neg.json") as f:
             data = json.load(f)
+        data['id'] = generate_unique_string('kpi_note_neg')
         try:
             resp = TestNote.ibm_security_advisor_findings_api_sdk.create_note(
                 account_id=TestNote.account_id,

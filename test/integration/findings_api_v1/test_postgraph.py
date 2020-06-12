@@ -26,6 +26,7 @@ import os
 from ibm_cloud_security_advisor import FindingsApiV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from .utils import read_credentials
+from .utils import generate_unique_string
 from ibm_cloud_sdk_core.api_exception import ApiException
 
 cwd = os.getcwd()
@@ -53,6 +54,7 @@ class TestPostGraph(unittest.TestCase):
         # read note
         with open(jsonDir + "note.json") as f:
             TestPostGraph.note_data = json.load(f)
+        TestPostGraph.note_data['id'] = generate_unique_string('note_graph')
 
         authenticator = IAMAuthenticator(
             url=iam_endpoint,
@@ -71,6 +73,8 @@ class TestPostGraph(unittest.TestCase):
         # read occurrence
         with open(jsonDir + "occurrence.json") as f:
             TestPostGraph.occ_data = json.load(f)
+        TestPostGraph.occ_data['id'] = generate_unique_string('occ_graph')
+        
 
         print("setup:creating occurrence...")
         TestPostGraph.create_occ_resp = TestPostGraph.ibm_security_advisor_findings_api_sdk.create_occurrence(

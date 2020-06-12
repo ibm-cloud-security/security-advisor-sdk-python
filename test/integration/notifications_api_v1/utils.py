@@ -18,6 +18,7 @@
 import json as json_import
 from os import getenv, environ, getcwd
 from os.path import isfile, join, expanduser
+import uuid
 
 def read_credentials(separator: str = '=') -> dict:
     """Return a config object based on credentials file.
@@ -74,4 +75,13 @@ def read_credentials(separator: str = '=') -> dict:
 
 def _parse_key_and_update_config(config, key, value):
     config[key] = value
+
+def generate_unique_name():
+    """
+    Generates a unique name based using Universally unique identifie.
+
+    Returns:
+        A a unique name.
+    """
+    return uuid.uuid4().hex[:20]
 
