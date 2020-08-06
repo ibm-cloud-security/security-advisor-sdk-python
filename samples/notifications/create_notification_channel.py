@@ -15,7 +15,8 @@ data = {
     "severity": [
         "high",
         "medium",
-        "low"
+        "low",
+        "critical"
     ],
     "alertSource": [
         {

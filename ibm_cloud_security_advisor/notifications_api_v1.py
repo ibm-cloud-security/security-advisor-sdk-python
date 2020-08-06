@@ -517,18 +517,21 @@ class ChannelResponseDefinitionAlertSourceItem():
 class ChannelResponseDefinitionSeverity():
     """
     Severity of the notification.
+    :attr bool critical: (optional) Critical Severity.
     :attr bool high: (optional) High Severity.
     :attr bool medium: (optional) Medium Severity.
     :attr bool low: (optional) Low Severity.
     """
 
-    def __init__(self, *, high: bool = None, medium: bool = None, low: bool = None) -> None:
+    def __init__(self, *, critical: bool = None, high: bool = None, medium: bool = None, low: bool = None) -> None:
         """
         Initialize a ChannelResponseDefinitionSeverity object.
+        :param bool critical: (optional) Critical Severity.
         :param bool high: (optional) High Severity.
         :param bool medium: (optional) Medium Severity.
         :param bool low: (optional) Low Severity.
         """
+        self.critical = critical
         self.high = high
         self.medium = medium
         self.low = low
@@ -537,10 +540,12 @@ class ChannelResponseDefinitionSeverity():
     def from_dict(cls, _dict: Dict) -> 'ChannelResponseDefinitionSeverity':
         """Initialize a ChannelResponseDefinitionSeverity object from a json dictionary."""
         args = {}
-        valid_keys = ['high', 'medium', 'low']
+        valid_keys = ['critical', 'high', 'medium', 'low']
         bad_keys = set(_dict.keys()) - set(valid_keys)
         if bad_keys:
             raise ValueError('Unrecognized keys detected in dictionary for class ChannelResponseDefinitionSeverity: ' + ', '.join(bad_keys))
+        if 'critical' in _dict:
+            args['critical'] = _dict.get('critical')
         if 'high' in _dict:
             args['high'] = _dict.get('high')
         if 'medium' in _dict:
@@ -557,6 +562,8 @@ class ChannelResponseDefinitionSeverity():
     def to_dict(self) -> Dict:
         """Return a json dictionary representing this model."""
         _dict = {}
+        if hasattr(self, 'critical') and self.critical is not None:
+            _dict['critical'] = self.critical
         if hasattr(self, 'high') and self.high is not None:
             _dict['high'] = self.high
         if hasattr(self, 'medium') and self.medium is not None:
@@ -839,18 +846,21 @@ class GetChannelResponseChannelAlertSource():
 class GetChannelResponseChannelSeverity():
     """
     Severity of the notification.
+    :attr bool critical: (optional) Critical Severity.
     :attr bool high: (optional) High Severity.
     :attr bool medium: (optional) Medium Severity.
     :attr bool low: (optional) Low Severity.
     """
 
-    def __init__(self, *, high: bool = None, medium: bool = None, low: bool = None) -> None:
+    def __init__(self, *, critical: bool = None, high: bool = None, medium: bool = None, low: bool = None) -> None:
         """
         Initialize a GetChannelResponseChannelSeverity object.
+        :param bool critical: (optional) Critical Severity.
         :param bool high: (optional) High Severity.
         :param bool medium: (optional) Medium Severity.
         :param bool low: (optional) Low Severity.
         """
+        self.critical = critical
         self.high = high
         self.medium = medium
         self.low = low
@@ -859,10 +869,12 @@ class GetChannelResponseChannelSeverity():
     def from_dict(cls, _dict: Dict) -> 'GetChannelResponseChannelSeverity':
         """Initialize a GetChannelResponseChannelSeverity object from a json dictionary."""
         args = {}
-        valid_keys = ['high', 'medium', 'low']
+        valid_keys = ['critical', 'high', 'medium', 'low']
         bad_keys = set(_dict.keys()) - set(valid_keys)
         if bad_keys:
             raise ValueError('Unrecognized keys detected in dictionary for class GetChannelResponseChannelSeverity: ' + ', '.join(bad_keys))
+        if 'critical' in _dict:
+            args['critical'] = _dict.get('critical')
         if 'high' in _dict:
             args['high'] = _dict.get('high')
         if 'medium' in _dict:
@@ -879,6 +891,8 @@ class GetChannelResponseChannelSeverity():
     def to_dict(self) -> Dict:
         """Return a json dictionary representing this model."""
         _dict = {}
+        if hasattr(self, 'critical') and self.critical is not None:
+            _dict['critical'] = self.critical
         if hasattr(self, 'high') and self.high is not None:
             _dict['high'] = self.high
         if hasattr(self, 'medium') and self.medium is not None:
