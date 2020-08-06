@@ -2271,6 +2271,7 @@ class Severity():
     - LOW&#58; Low Impact
     - MEDIUM&#58; Medium Impact
     - HIGH&#58; High Impact.
+    - CRITICAL&#58; Critical Impact.
     """
 
     def __init__(self) -> None:

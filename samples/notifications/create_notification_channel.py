@@ -15,7 +15,8 @@ data = {
     "severity": [
         "high",
         "medium",
-        "low"
+        "low",
+        "critical"
     ],
     "alertSource": [
         {
@@ -40,7 +41,7 @@ data = {
     ]
 }
 response = notifications_service.create_notification_channel(
-    account_id="abc",
+    account_id="4a1961206a5542b6aad0d11fd226cea7",
     **data
 )
 
