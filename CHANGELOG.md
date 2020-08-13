@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/ibm-cloud-security/security-advisor-sdk-python/compare/v1.0.2...v1.0.3) (2020-08-13)
+
+
+### Bug Fixes
+
+* **severity:** add 'critical' severity for notifications and findings ([39a40bf](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/39a40bf14df304fe33e7c60c59e49ae584594b10))
+* **severity:** add 'critical' severity for notifications and findings ([264638e](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/264638e85d8013c77e3e99553bfe6567bb150bb9))
+* **severity:** add 'critical' severity for notifications and findings ([0536467](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/0536467e0716fcfc903809f42694b29b8ff7f9b5))
+
 ## [1.0.2](https://github.com/ibm-cloud-security/security-advisor-sdk-python/compare/v1.0.1...v1.0.2) (2020-06-12)
 
 
