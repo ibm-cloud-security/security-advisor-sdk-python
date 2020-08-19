@@ -1,3 +1,14 @@
+# [1.1.0](https://github.com/ibm-cloud-security/security-advisor-sdk-python/compare/v1.0.3...v1.1.0) (2020-08-19)
+
+
+### Features
+
+* **sdk-metrics:** Add User-Agent for sdk metrics instrumentation ([cce9013](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/cce901306917f5c257ce3c1d1bb3c36b4099b5c3))
+* **sdk-metrics:** Add User-Agent for sdk metrics instrumentation ([0488227](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/048822780e6ad4e11ab566fe2d677896154457a9))
+* **sdk-metrics:** Add User-Agent for sdk metrics instrumentation ([34ab7e5](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/34ab7e5b3f69997cdd34f1b5cf31b5f1a32a7758))
+* **sdk-metrics:** Add User-Agent for sdk metrics instrumentation ([92343ab](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/92343aba309198742f8809b5667a5d1c0334c548))
+* **sdk-metrics:** Add User-Agent for sdk metrics instrumentation ([36cb5a4](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/36cb5a4f780c3c5eb30644e750741ce3cef78512))
+
 ## [1.0.3](https://github.com/ibm-cloud-security/security-advisor-sdk-python/compare/v1.0.2...v1.0.3) (2020-08-13)
 
 
