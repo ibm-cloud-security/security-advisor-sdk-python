@@ -33,7 +33,7 @@ class TestCommon(unittest.TestCase):
         headers = common.get_sdk_headers('example_service', 'V1', 'operation1')
         self.assertIsNotNone(headers)
         self.assertIsNotNone(headers.get('User-Agent'))
-        self.assertIn('ibm_cloud_security_advisor', headers.get('User-Agent'))
+        self.assertIn('ibm-security-advisor-python-sdk', headers.get('User-Agent'))
 
     def test_get_system_info(self):
         """
