@@ -22,7 +22,7 @@ import platform
 from ibm_cloud_security_advisor.version import __version__
 
 HEADER_NAME_USER_AGENT = 'User-Agent'
-SDK_NAME = 'ibm_cloud_security_advisor'
+SDK_NAME = 'ibm-security-advisor-python-sdk'
 
 def get_system_info():
     """
@@ -47,7 +47,7 @@ USER_AGENT = '{0}/{1} ({2})'.format(SDK_NAME, __version__, get_system_info())
 def get_sdk_headers(service_name, service_version, operation_id):
     """
     Get the request headers to be sent in requests by the SDK.
-    
+
     If you plan to gather metrics for your SDK, the User-Agent header value must
     be a string similar to the following:
     my-python-sdk/0.0.1 (lang=python; arch=x86_64; os=Linux; python.version=3.7.4)
