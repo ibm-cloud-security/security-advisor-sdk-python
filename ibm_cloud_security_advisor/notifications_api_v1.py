@@ -152,7 +152,7 @@ class NotificationsApiV1(BaseService):
             'description': description,
             'severity': severity,
             'enabled': enabled,
-            'alertSource': alert_source
+            'alert_source': alert_source
         }
 
         url = '/v1/{0}/notifications/channels'.format(*self._encode_path_vars(account_id))
@@ -309,7 +309,7 @@ class NotificationsApiV1(BaseService):
             'description': description,
             'severity': severity,
             'enabled': enabled,
-            'alertSource': alert_source
+            'alert_source': alert_source
         }
 
         url = '/v1/{0}/notifications/channels/{1}'.format(*self._encode_path_vars(account_id, channel_id))
