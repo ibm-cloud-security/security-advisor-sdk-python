@@ -18,7 +18,7 @@ data = {
         "low",
         "critical"
     ],
-    "alertSource": [
+    "alert_source": [
         {
             "provider_name": "VA",
             "finding_types": [
@@ -29,13 +29,6 @@ data = {
             "provider_name": "CERT",
             "finding_types": [
                 "ALL"
-            ]
-        },
-        {
-            "provider_name": "config-advisor",
-            "finding_types": [
-                "appprotection-dns_not_proxied",
-                "appprotection-dnssec_off"
             ]
         }
     ]

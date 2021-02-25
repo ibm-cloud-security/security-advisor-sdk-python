@@ -81,11 +81,11 @@ class TestNotification(unittest.TestCase):
         resp = TestNotification.ibm_security_advisor_notifications_api_sdk.list_all_channels(
             account_id=TestNotification.account_id
         )
-        assert resp.result['channels'][0]['name'] == TestNotification.notification_data[0]['name']
+        assert resp.status_code == 200
 
     def test_create_notification_channel(self):
         print("test_create_notification_channel...")
-        assert TestNotification.create_notification_channel_resp.result['statusCode'] == 200
+        assert TestNotification.create_notification_channel_resp.result['status_code'] == 200
 
     def test_delete_notification_channels(self):
         print("test_delete_notification_channels...")
@@ -94,7 +94,7 @@ class TestNotification(unittest.TestCase):
             account_id=TestNotification.account_id,
             **TestNotification.notification_data[1]
         )
-        assert resp1.result['statusCode'] == 200
+        assert resp1.result['status_code'] == 200
 
         TestNotification.notification_data[3]['name'] = generate_unique_name()
         resp2 = TestNotification.ibm_security_advisor_notifications_api_sdk.create_notification_channel(
@@ -102,7 +102,7 @@ class TestNotification(unittest.TestCase):
             **TestNotification.notification_data[3]
         )
 
-        assert resp2.result['statusCode'] == 200
+        assert resp2.result['status_code'] == 200
         del_resp = TestNotification.ibm_security_advisor_notifications_api_sdk.delete_notification_channels(
             account_id=TestNotification.account_id,
             body=[
@@ -120,7 +120,7 @@ class TestNotification(unittest.TestCase):
             account_id=TestNotification.account_id,
             **TestNotification.notification_data[1]
         )
-        assert resp.result['statusCode'] == 200
+        assert resp.result['status_code'] == 200
         del_resp = TestNotification.ibm_security_advisor_notifications_api_sdk.delete_notification_channel(
             account_id=TestNotification.account_id,
             channel_id=resp.result['channel_id'],
@@ -143,11 +143,11 @@ class TestNotification(unittest.TestCase):
             channel_id=TestNotification.create_notification_channel_resp.result['channel_id'],
             **TestNotification.notification_data[2]
         )
-        assert resp.result['statusCode'] == 200
+        assert resp.result['status_code'] == 200
         
     def test_get_public_key(self):
         print("test_get_public_key...")
         resp = TestNotification.ibm_security_advisor_notifications_api_sdk.get_public_key(
                 account_id=TestNotification.account_id,
             )
-        assert 'publicKey' in resp.result
+        assert 'public_key' in resp.result
