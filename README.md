@@ -30,13 +30,13 @@ The  ibm_cloud_security_advisor allows developers to programmatically interact w
 To install, use `pip` or `easy_install`:
 
 ```bash
-pip install --upgrade "ibm_cloud_security_advisor>=1.0.0"
+pip install --upgrade "ibm_cloud_security_advisor>=1.1.0"
 ```
 
 or
 
 ```bash
-easy_install --upgrade " ibm_cloud_security_advisor>=1.0.0"
+easy_install --upgrade " ibm_cloud_security_advisor>=1.1.0"
 ```
 
 ## Authentication
