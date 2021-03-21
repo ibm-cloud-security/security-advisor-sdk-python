@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/ibm-cloud-security/security-advisor-sdk-python/compare/v1.1.0...v1.1.1) (2021-03-21)
+
+
+### Bug Fixes
+
+* **openapi:** Fix openapi validation errors ([3c5511c](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/3c5511cb634d137b5d27dc79ccc87fb0432c0bb4))
+
 # [1.1.0](https://github.com/ibm-cloud-security/security-advisor-sdk-python/compare/v1.0.3...v1.1.0) (2020-08-19)
 
 
