@@ -38,7 +38,7 @@ from .common import get_sdk_headers
 class NotificationsApiV1(BaseService):
     """The Notifications API V1 service."""
 
-    DEFAULT_SERVICE_URL = 'https://notifications-api.cloud.ibm.com/notifications'
+    DEFAULT_SERVICE_URL = 'https://us-south.secadvisor.cloud.ibm.com/notifications'
     DEFAULT_SERVICE_NAME = 'notifications_api'
 
     @classmethod
