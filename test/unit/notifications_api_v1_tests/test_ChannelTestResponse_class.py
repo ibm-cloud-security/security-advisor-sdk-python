@@ -27,7 +27,7 @@ import datetime
 from ibm_cloud_security_advisor.notifications_api_v1 import *
 from ibm_cloud_security_advisor import NotificationsApiV1
 
-from ibm_cloud_security_advisor.notifications_api_v1 import ChannelTestResponse
+from ibm_cloud_security_advisor.notifications_api_v1 import TestChannel
 
 from ibm_cloud_sdk_core import BaseService
 from ibm_cloud_sdk_core import datetime_to_string, string_to_datetime
@@ -42,20 +42,20 @@ class TestChannelTestResponse(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         print("\nrunning setup preparation...")
-        TestChannelTestResponse.app = ChannelTestResponse(
+        TestChannelTestResponse.app = TestChannel(
             test="abc",
         )
         
         # read env vars
         #envvars = read_credentials()
 
-    """_from_dict test cases """
-    def test_from_dict_bad_key_neg(self):
-        self.assertRaises(
-            ValueError, ChannelTestResponse._from_dict, {"bad_key": "abc"})
+    # """_from_dict test cases """
+    # def test_from_dict_bad_key_neg(self):
+    #     self.assertRaises(
+    #         ValueError, TestChannel._from_dict, {"bad_key": "abc"})
 
     def test_from_dict_success(self):
-        res = ChannelTestResponse._from_dict({
+        res = TestChannel._from_dict({
             "test": "abc",
         })
         print(res)
