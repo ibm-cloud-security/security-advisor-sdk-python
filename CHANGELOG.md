@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/ibm-cloud-security/security-advisor-sdk-python/compare/v1.1.1...v2.0.0) (2021-04-20)
+
+
+* Merge pull request #26 from ibm-cloud-security/update_resp ([1f9a7bf](https://github.com/ibm-cloud-security/security-advisor-sdk-python/commit/1f9a7bf86aabc0742fd5a5f358f5aaeec17802c4)), closes [#26](https://github.com/ibm-cloud-security/security-advisor-sdk-python/issues/26)
+
+
+### BREAKING CHANGES
+
+* updated response definitions
+
 ## [1.1.1](https://github.com/ibm-cloud-security/security-advisor-sdk-python/compare/v1.1.0...v1.1.1) (2021-03-21)
 
 
