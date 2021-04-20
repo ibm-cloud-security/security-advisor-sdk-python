@@ -41,10 +41,10 @@ class TestChannelResponseDefinition(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         print("\nrunning setup preparation...")
-        channelResponseDefinitionSeverity = ChannelResponseDefinitionSeverity(
+        channelResponseDefinitionSeverity = ChannelSeverity(
             high=True, medium=True, low=True
         )
-        channelResponseDefinitionAlertSourceItem= ChannelResponseDefinitionAlertSourceItem(
+        channelResponseDefinitionAlertSourceItem= NotificationChannelAlertSourceItem(
             provider_name="abc", finding_types=['abc']
         )
         TestChannelResponseDefinition.app = ChannelResponseDefinition(
@@ -60,8 +60,8 @@ class TestChannelResponseDefinition(unittest.TestCase):
 
 
     """_from_dict test cases """
-    @patch.object(ChannelResponseDefinitionSeverity, '_from_dict')
-    @patch.object(ChannelResponseDefinitionAlertSourceItem, '_from_dict')
+    @patch.object(ChannelSeverity, '_from_dict')
+    @patch.object(NotificationChannelAlertSourceItem, '_from_dict')
     def test_from_dict_bad_key_neg(self, mock1, mock2):
         self.assertRaises(
             ValueError, ChannelResponseDefinition._from_dict, {"bad_key": "abc"})

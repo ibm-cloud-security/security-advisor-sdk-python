@@ -27,11 +27,11 @@ import datetime
 from ibm_cloud_security_advisor.notifications_api_v1 import *
 from ibm_cloud_security_advisor import NotificationsApiV1
 
-from ibm_cloud_security_advisor.notifications_api_v1 import GetChannelResponse
-from ibm_cloud_security_advisor.notifications_api_v1 import ChannelResponseDefinition
-from ibm_cloud_security_advisor.notifications_api_v1 import ChannelResponseDefinitionSeverity
-from ibm_cloud_security_advisor.notifications_api_v1 import ChannelResponseDefinitionAlertSourceItem
-from ibm_cloud_security_advisor.notifications_api_v1 import GetChannelResponseChannelSeverity
+from ibm_cloud_security_advisor.notifications_api_v1 import Channel
+from ibm_cloud_security_advisor.notifications_api_v1 import ChannelInfo
+from ibm_cloud_security_advisor.notifications_api_v1 import ChannelSeverity
+from ibm_cloud_security_advisor.notifications_api_v1 import NotificationChannelAlertSourceItem
+from ibm_cloud_security_advisor.notifications_api_v1 import ChannelGetChannel
 
 from ibm_cloud_sdk_core import BaseService
 from ibm_cloud_sdk_core import datetime_to_string, string_to_datetime
@@ -46,10 +46,10 @@ class TestGetChannelResponse(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         print("\nrunning setup preparation...")
-        getChannelResponseChannelSeverity = GetChannelResponseChannelSeverity(
+        getChannelResponseChannelSeverity = ChannelSeverity(
             high=True, medium=True, low=True
         )
-        channelResponseDefinitionAlertSourceItem = ChannelResponseDefinitionAlertSourceItem(
+        channelResponseDefinitionAlertSourceItem = NotificationChannelAlertSourceItem(
             provider_name="abc", finding_types=['abc']
         )
         channelResponseDefinition = ChannelResponseDefinition(
@@ -59,7 +59,7 @@ class TestGetChannelResponse(unittest.TestCase):
             alert_source=[channelResponseDefinitionAlertSourceItem],
             frequency="abc"
         )
-        TestGetChannelResponse.app = GetChannelResponse(
+        TestGetChannelResponse.app = ChannelGetChannel(
             channel=channelResponseDefinition
         )
         
@@ -71,8 +71,8 @@ class TestGetChannelResponse(unittest.TestCase):
         self.assertRaises(
             ValueError, GetChannelResponse._from_dict, {"bad_key": "abc"})
 
-    @patch.object(GetChannelResponseChannelSeverity, '_from_dict')
-    @patch.object(ChannelResponseDefinitionAlertSourceItem, '_from_dict')
+    @patch.object(ChannelSeverity, '_from_dict')
+    @patch.object(NotificationChannelAlertSourceItem, '_from_dict')
     def test_from_dict_success(self, mock1, mock2):
         res = GetChannelResponse._from_dict({
             "channel": {

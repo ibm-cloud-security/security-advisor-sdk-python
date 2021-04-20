@@ -27,7 +27,7 @@ import datetime
 from ibm_cloud_security_advisor.notifications_api_v1 import *
 from ibm_cloud_security_advisor import NotificationsApiV1
 
-from ibm_cloud_security_advisor.notifications_api_v1 import UpdateChannelResponse
+from ibm_cloud_security_advisor.notifications_api_v1 import Channel
 
 from ibm_cloud_sdk_core import BaseService
 from ibm_cloud_sdk_core import datetime_to_string, string_to_datetime
@@ -42,7 +42,7 @@ class TestUpdateChannelResponse(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         print("\nrunning setup preparation...")
-        TestUpdateChannelResponse.app = UpdateChannelResponse(
+        TestUpdateChannelResponse.app = Channel(
             channel_id="abc", status_code=200
         )
         
