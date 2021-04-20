@@ -26,10 +26,10 @@ import datetime
 
 from ibm_cloud_security_advisor import NotificationsApiV1
 
-from ibm_cloud_security_advisor.notifications_api_v1 import ListChannelsResponse
-from ibm_cloud_security_advisor.notifications_api_v1 import ChannelResponseDefinition
-from ibm_cloud_security_advisor.notifications_api_v1 import ChannelResponseDefinitionSeverity
-from ibm_cloud_security_advisor.notifications_api_v1 import ChannelResponseDefinitionAlertSourceItem
+from ibm_cloud_security_advisor.notifications_api_v1 import ChannelsList
+from ibm_cloud_security_advisor.notifications_api_v1 import Channel
+from ibm_cloud_security_advisor.notifications_api_v1 import ChannelSeverity
+from ibm_cloud_security_advisor.notifications_api_v1 import NotificationChannelAlertSourceItem
 
 from ibm_cloud_sdk_core import BaseService
 from ibm_cloud_sdk_core import datetime_to_string, string_to_datetime
@@ -44,33 +44,33 @@ class TestListChannelsResponse(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         print("\nrunning setup preparation...")
-        channelResponseDefinitionSeverity = ChannelResponseDefinitionSeverity(
+        channelResponseDefinitionSeverity = ChannelSeverity(
             high=True, medium=True, low=True
         )
-        channelResponseDefinitionAlertSourceItem = ChannelResponseDefinitionAlertSourceItem(
+        channelResponseDefinitionAlertSourceItem = NotificationChannelAlertSourceItem(
             provider_name="abc", finding_types=['abc']
         )
-        channelResponseDefinition = ChannelResponseDefinition(
+        channelResponseDefinition = Channel(
             channel_id="abc", name="abc", description="abc",
             type="abc", severity=channelResponseDefinitionSeverity,
             endpoint="http://abc.com", enabled=True,
             alert_source=[channelResponseDefinitionAlertSourceItem],
             frequency="abc"
         )
-        TestListChannelsResponse.app = ListChannelsResponse(
+        TestListChannelsResponse.app = ChannelsList(
             channels=[channelResponseDefinition]
         )
         
         # read env vars
         #envvars = read_credentials()
 
-    """_from_dict test cases """
-    def test_from_dict_bad_key_neg(self):
-        self.assertRaises(
-            ValueError, ListChannelsResponse._from_dict, {"bad_key": "abc"})
+    # """_from_dict test cases """
+    # def test_from_dict_bad_key_neg(self):
+    #     self.assertRaises(
+    #         ValueError, ChannelsList._from_dict, {"bad_key": "abc"})
 
     def test_from_dict_success(self):
-        res = ListChannelsResponse._from_dict({
+        res = ChannelsList._from_dict({
             "channels": [{}]
         })
         print(res)

@@ -25,7 +25,7 @@ import datetime
 # import os
 
 import ibm_cloud_security_advisor.notifications_api_v1
-from ibm_cloud_security_advisor.notifications_api_v1 import *
+from ibm_cloud_security_advisor.notifications_api_v1 import ChannelsDelete
 from ibm_cloud_security_advisor import NotificationsApiV1
 
 # from ibm_cloud_security_advisor.notifications_api_v1 import BulkDeleteChannelsResponse
@@ -43,20 +43,15 @@ class TestBulkDeleteChannelsResponse(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         print("\nrunning setup preparation...")
-        TestBulkDeleteChannelsResponse.app = BulkDeleteChannelsResponse(
+        TestBulkDeleteChannelsResponse.app = ChannelsDelete(
             message="abc"
         )
         
         # read env vars
         #envvars = read_credentials()
 
-    """_from_dict test cases """
-    def test_from_dict_bad_key_neg(self):
-        self.assertRaises(
-            ValueError, BulkDeleteChannelsResponse._from_dict, {"bad_key": "abc"})
-
     def test_from_dict_success(self):
-        res = BulkDeleteChannelsResponse._from_dict({
+        res = ChannelsDelete._from_dict({
             "message": "abc"
         })
         print(res)

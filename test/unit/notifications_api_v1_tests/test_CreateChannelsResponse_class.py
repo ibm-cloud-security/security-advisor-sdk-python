@@ -41,20 +41,20 @@ class TestCreateChannelsResponse(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         print("\nrunning setup preparation...")
-        TestCreateChannelsResponse.app = CreateChannelsResponse(
+        TestCreateChannelsResponse.app = ChannelInfo(
             channel_id="abc", status_code=200
         )
         
         # read env vars
         #envvars = read_credentials()
 
-    """_from_dict test cases """
-    def test_from_dict_bad_key_neg(self):
-        self.assertRaises(
-            ValueError, CreateChannelsResponse._from_dict, {"bad_key": "abc"})
+    # """_from_dict test cases """
+    # def test_from_dict_bad_key_neg(self):
+    #     self.assertRaises(
+    #         ValueError, ChannelInfo._from_dict, {"bad_key": "abc"})
 
     def test_from_dict_success(self):
-        res = CreateChannelsResponse._from_dict({
+        res = ChannelInfo._from_dict({
             "channel_id":"abc", "status_code":200
         })
         print(res)

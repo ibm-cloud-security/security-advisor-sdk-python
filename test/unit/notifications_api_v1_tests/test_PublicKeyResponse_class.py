@@ -27,7 +27,7 @@ import datetime
 from ibm_cloud_security_advisor.notifications_api_v1 import *
 from ibm_cloud_security_advisor import NotificationsApiV1
 
-from ibm_cloud_security_advisor.notifications_api_v1 import PublicKeyResponse
+from ibm_cloud_security_advisor.notifications_api_v1 import PublicKeyGet
 
 from ibm_cloud_sdk_core import BaseService
 from ibm_cloud_sdk_core import datetime_to_string, string_to_datetime
@@ -42,7 +42,7 @@ class TestPublicKeyResponse(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         print("\nrunning setup preparation...")
-        TestPublicKeyResponse.app = PublicKeyResponse(
+        TestPublicKeyResponse.app = PublicKeyGet(
              public_key="abc"
         )
         
@@ -52,16 +52,16 @@ class TestPublicKeyResponse(unittest.TestCase):
     """_from_dict test cases """
     def test_from_dict_bad_key_neg(self):
         self.assertRaises(
-            ValueError, PublicKeyResponse._from_dict, {"bad_key": "abc"})
+            ValueError, PublicKeyGet._from_dict, {"bad_key": "abc"})
 
-    """_from_dict test cases """
-    def test_from_dict_public_key_neg(self):
-        self.assertRaises(
-            ValueError, PublicKeyResponse._from_dict, {"public_key": "abc"})
+    # """_from_dict test cases """
+    # def test_from_dict_public_key_neg(self):
+    #     self.assertRaises(
+    #         ValueError, PublicKeyGet._from_dict, {"public_key": "abc"})
 
     def test_from_dict_success(self):
-        res = PublicKeyResponse._from_dict({
-            "publicKey": "abc"
+        res = PublicKeyGet._from_dict({
+            "public_key": "abc"
         })
         print(res)
 
