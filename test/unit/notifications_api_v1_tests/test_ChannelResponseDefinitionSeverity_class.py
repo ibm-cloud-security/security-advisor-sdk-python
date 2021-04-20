@@ -41,20 +41,20 @@ class TestChannelResponseDefinitionSeverity(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         print("\nrunning setup preparation...")
-        TestChannelResponseDefinitionSeverity.app = ChannelResponseDefinitionSeverity(
+        TestChannelResponseDefinitionSeverity.app = ChannelSeverity(
             high=True, medium=True, low=True
         )
         
         # read env vars
         #envvars = read_credentials()
 
-    """_from_dict test cases """
-    def test_from_dict_bad_key_neg(self):
-        self.assertRaises(
-            ValueError, ChannelResponseDefinitionSeverity._from_dict, {"bad_key": "abc"})
+    # """_from_dict test cases """
+    # def test_from_dict_bad_key_neg(self):
+    #     self.assertRaises(
+    #         ValueError, ChannelSeverity._from_dict, {"bad_key": "abc"})
 
     def test_from_dict_success(self):
-        res = ChannelResponseDefinitionSeverity._from_dict({
+        res = ChannelSeverity._from_dict({
             "high":True, "medium":True, "low":True
         })
         print(res)

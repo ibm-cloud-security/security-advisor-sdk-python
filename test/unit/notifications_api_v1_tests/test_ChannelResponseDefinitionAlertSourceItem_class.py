@@ -41,7 +41,7 @@ class TestChannelResponseDefinitionAlertSourceItem(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         print("\nrunning setup preparation...")
-        TestChannelResponseDefinitionAlertSourceItem.app = ChannelResponseDefinitionAlertSourceItem(
+        TestChannelResponseDefinitionAlertSourceItem.app = NotificationChannelAlertSourceItem(
              provider_name="abc",finding_types=['abc']
         )
         
@@ -51,10 +51,10 @@ class TestChannelResponseDefinitionAlertSourceItem(unittest.TestCase):
     """_from_dict test cases """
     def test_from_dict_bad_key_neg(self):
         self.assertRaises(
-            ValueError, ChannelResponseDefinitionAlertSourceItem._from_dict, {"bad_key": "abc"})
+            ValueError, NotificationChannelAlertSourceItem._from_dict, {"bad_key": "abc"})
 
     def test_from_dict_success(self):
-        res = ChannelResponseDefinitionAlertSourceItem._from_dict({
+        res = NotificationChannelAlertSourceItem._from_dict({
             "provider_name": "abc", "finding_types": ['abc']
         })
         print(res)

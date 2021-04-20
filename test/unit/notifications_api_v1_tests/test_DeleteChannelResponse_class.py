@@ -41,20 +41,20 @@ class TestDeleteChannelResponse(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         print("\nrunning setup preparation...")
-        TestDeleteChannelResponse.app = DeleteChannelResponse(
+        TestDeleteChannelResponse.app = ChannelDelete(
             channel_id="abc", message="abc"
         )
         
         # read env vars
         #envvars = read_credentials()
 
-    """_from_dict test cases """
-    def test_from_dict_bad_key_neg(self):
-        self.assertRaises(
-            ValueError, DeleteChannelResponse._from_dict, {"bad_key": "abc"})
+    # """_from_dict test cases """
+    # def test_from_dict_bad_key_neg(self):
+    #     self.assertRaises(
+    #         ValueError, ChannelDelete._from_dict, {"bad_key": "abc"})
 
     def test_from_dict_success(self):
-        res = DeleteChannelResponse._from_dict({
+        res = ChannelDelete._from_dict({
             "channel_id": "abc", "message": "abc"
         })
         print(res)

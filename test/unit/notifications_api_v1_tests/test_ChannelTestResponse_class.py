@@ -49,13 +49,13 @@ class TestChannelTestResponse(unittest.TestCase):
         # read env vars
         #envvars = read_credentials()
 
-    """_from_dict test cases """
-    def test_from_dict_bad_key_neg(self):
-        self.assertRaises(
-            ValueError, ChannelTestResponse._from_dict, {"bad_key": "abc"})
+    # """_from_dict test cases """
+    # def test_from_dict_bad_key_neg(self):
+    #     self.assertRaises(
+    #         ValueError, TestChannel._from_dict, {"bad_key": "abc"})
 
     def test_from_dict_success(self):
-        res = ChannelTestResponse._from_dict({
+        res = TestChannel._from_dict({
             "test": "abc",
         })
         print(res)

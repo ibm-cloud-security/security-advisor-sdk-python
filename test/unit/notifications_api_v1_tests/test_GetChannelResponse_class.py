@@ -52,29 +52,29 @@ class TestGetChannelResponse(unittest.TestCase):
         channelResponseDefinitionAlertSourceItem = NotificationChannelAlertSourceItem(
             provider_name="abc", finding_types=['abc']
         )
-        channelResponseDefinition = ChannelResponseDefinition(
+        channelResponseDefinition = Channel(
             channel_id="abc", name="abc", description="abc",
             type="abc", severity=getChannelResponseChannelSeverity,
             endpoint="http://abc.com", enabled=True,
             alert_source=[channelResponseDefinitionAlertSourceItem],
             frequency="abc"
         )
-        TestGetChannelResponse.app = ChannelGetChannel(
+        TestGetChannelResponse.app = ChannelGet(
             channel=channelResponseDefinition
         )
         
         # read env vars
         #envvars = read_credentials()
 
-    """_from_dict test cases """
-    def test_from_dict_bad_key_neg(self):
-        self.assertRaises(
-            ValueError, GetChannelResponse._from_dict, {"bad_key": "abc"})
+    # """_from_dict test cases """
+    # def test_from_dict_bad_key_neg(self):
+    #     self.assertRaises(
+    #         ValueError, ChannelGet._from_dict, {"bad_key": "abc"})
 
     @patch.object(ChannelSeverity, '_from_dict')
     @patch.object(NotificationChannelAlertSourceItem, '_from_dict')
     def test_from_dict_success(self, mock1, mock2):
-        res = GetChannelResponse._from_dict({
+        res = ChannelGet._from_dict({
             "channel": {
             }
         })

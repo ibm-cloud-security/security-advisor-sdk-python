@@ -52,16 +52,16 @@ class TestPublicKeyResponse(unittest.TestCase):
     """_from_dict test cases """
     def test_from_dict_bad_key_neg(self):
         self.assertRaises(
-            ValueError, PublicKeyResponse._from_dict, {"bad_key": "abc"})
+            ValueError, PublicKeyGet._from_dict, {"bad_key": "abc"})
 
-    """_from_dict test cases """
-    def test_from_dict_public_key_neg(self):
-        self.assertRaises(
-            ValueError, PublicKeyResponse._from_dict, {"public_key": "abc"})
+    # """_from_dict test cases """
+    # def test_from_dict_public_key_neg(self):
+    #     self.assertRaises(
+    #         ValueError, PublicKeyGet._from_dict, {"public_key": "abc"})
 
     def test_from_dict_success(self):
-        res = PublicKeyResponse._from_dict({
-            "publicKey": "abc"
+        res = PublicKeyGet._from_dict({
+            "public_key": "abc"
         })
         print(res)
 

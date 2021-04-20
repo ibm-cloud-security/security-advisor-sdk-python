@@ -27,7 +27,7 @@ import datetime
 from ibm_cloud_security_advisor import NotificationsApiV1
 
 from ibm_cloud_security_advisor.notifications_api_v1 import ChannelsList
-from ibm_cloud_security_advisor.notifications_api_v1 import ChannelInfo
+from ibm_cloud_security_advisor.notifications_api_v1 import Channel
 from ibm_cloud_security_advisor.notifications_api_v1 import ChannelSeverity
 from ibm_cloud_security_advisor.notifications_api_v1 import NotificationChannelAlertSourceItem
 
@@ -50,7 +50,7 @@ class TestListChannelsResponse(unittest.TestCase):
         channelResponseDefinitionAlertSourceItem = NotificationChannelAlertSourceItem(
             provider_name="abc", finding_types=['abc']
         )
-        channelResponseDefinition = ChannelInfo(
+        channelResponseDefinition = Channel(
             channel_id="abc", name="abc", description="abc",
             type="abc", severity=channelResponseDefinitionSeverity,
             endpoint="http://abc.com", enabled=True,
@@ -64,13 +64,13 @@ class TestListChannelsResponse(unittest.TestCase):
         # read env vars
         #envvars = read_credentials()
 
-    """_from_dict test cases """
-    def test_from_dict_bad_key_neg(self):
-        self.assertRaises(
-            ValueError, ListChannelsResponse._from_dict, {"bad_key": "abc"})
+    # """_from_dict test cases """
+    # def test_from_dict_bad_key_neg(self):
+    #     self.assertRaises(
+    #         ValueError, ChannelsList._from_dict, {"bad_key": "abc"})
 
     def test_from_dict_success(self):
-        res = ListChannelsResponse._from_dict({
+        res = ChannelsList._from_dict({
             "channels": [{}]
         })
         print(res)
